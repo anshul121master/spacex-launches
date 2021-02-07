@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+GET STARTED: In the project directory, you can run:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Available Scripts:-
 
-## Available Scripts
-
-In the project directory, you can run:
-
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits.
 
-### `npm test`
+### Folder Structure:-
+The entire app is placed inside spacex-mission/src
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+/src/Components => This includes all the presentational Components.
+/src/Container => This includes the stateful container Components.
+/src/services/api.js => This file includes the fetch calls to an api.
+/src/services/endpoints.js => This file includes all the endpoints as per requirements.
 
-### `npm run build`
+/App.js => This includes a parent component in which all sub-components in the app gets rendered.
+/index.css => This majorly includes the css for setting up app layout as per requirements.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Approach.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The entire app is divided into two major components:-
+1. FilterComponent => includes the Filter options
+2. MissionDetails => includes the Spacex Mission Cards.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+=> Whenever any filter gets applied the state of FilterComponent gets changed which causes only the FilterComponent to re-render and the applied filter button background-color changes to orange.
 
-### `npm run eject`
+=> Whenever Apply Filter button gets clicked the entire app gets re-render i.e App.js which fetches the relevant data as per filters applied from api end-point.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+=> Components for generating cards and buttons are created seperately for reuse purposes.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Thanks a lot
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Developed By: Anshul Agarwal.

@@ -1,13 +1,82 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.header{
+  grid-area: hd;
+}
+/* setting up the root container grid */
+#root {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 30% 65%;
+  grid-template-areas: 
+  "hd hd"
+  "filter-panel-grid mission-details-panel-grid";
+}
+
+@media (max-width: 700px) {
+  #root {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    "hd"
+    "filter-panel-grid" 
+    "mission-details-panel-grid";
+  }
+}
+/* Setting up mission cards grid */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .mission_cards_container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(25%, 1fr));
+    grid-template-rows: auto;
+    row-gap: 15px;
+    column-gap: 15px;
+    grid-area: mission-details-panel-grid;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1023px) {
+  .mission_cards_container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(25%, 1fr));
+    grid-template-rows: auto;
+    row-gap: 15px;
+    column-gap: 15px;
+    grid-area: mission-details-panel-grid;
+  }
+}
+
+@media (max-width: 700px) {
+  .mission_cards_container {
+    display: grid;
+    grid-template-columns: minmax(25%, 1fr);
+    grid-template-rows: auto;
+    row-gap: 15px;
+    column-gap: 15px;
+    grid-area: mission-details-panel-grid;
+  }
+}
+
+/* setting up filter control panel */
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-template-rows: auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-area: filter-panel-grid;
 }
