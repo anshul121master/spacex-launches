@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import FilterComponent from "./container/FilterComponent";
 import MissionDetails from "./container/MissionDetails";
 import Loader from "./components/Loader";
@@ -10,6 +10,9 @@ export default () => {
   const [state, setState] = useState({
     missions: [],
     launchYears: [],
+    selectedYearIndex: -1,
+    selectedLaunchIndex: -1,
+    selectedLandIndex: -1,
     loading: true,
   });
 
@@ -25,11 +28,20 @@ export default () => {
     });
   }, []);
 
-  const applyFilters = (filtersApplied) => {
-    setState((prevState) => ({
+  const filtersRef = useRef({});
+  const applyFilters = (panel, panelIndexName, value, index) => {
+    filtersRef.current = {
+      ...filtersRef.current,
+      [panel]:value
+    }
+
+    setState(prevState => ({
       ...prevState,
-      loading: true,
-    }));
+      loading: true
+    }))
+
+    let filtersApplied = filtersRef.current;
+    console.log("filtersApplied", filtersApplied)
 
     const filters = Object.keys(filtersApplied);
     let url = null
@@ -63,12 +75,13 @@ export default () => {
         setState((prevState) => ({
           ...prevState,
           missions: filteredMissions,
+          [panelIndexName]:index,
           loading: false,
         }));
       }
     );
   };
-  const { missions, launchYears, loading } = state;
+  const { missions, launchYears, loading, selectedYearIndex, selectedLaunchIndex, selectedLandIndex } = state;
   return loading ? (
     <Loader />
   ) : (
@@ -77,6 +90,9 @@ export default () => {
       <FilterComponent
         launchYears={launchYears}
         applyFilters={applyFilters}
+        selectedYearIndex={selectedYearIndex}
+        selectedLaunchIndex={selectedLaunchIndex}
+        selectedLandIndex={selectedLandIndex}
       />
       <MissionDetails missions={missions} />
     </React.Fragment>

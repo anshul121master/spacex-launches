@@ -14,12 +14,15 @@ const useStyles = makeStyles({
     backgroundSize: "80% 80%",
     backgroundColor: "#bdc3c7"
   },
+  cardHeader:{
+    fontWeight: "bold"
+  }
 });
 
 export default function MissionCard(props) {
   const classes = useStyles();
   const { missionDetails } = props;
-  const { missionImage, missionName, missionIds, launchYear, successLaunch } = missionDetails;
+  const { missionImage, missionName, missionIds, launchYear, successLaunch, successLand } = missionDetails;
   return (
     <Card className={classes.root}>
         <CardMedia
@@ -29,18 +32,21 @@ export default function MissionCard(props) {
 
         />
         <CardContent>
-          <Typography variant="h5" component="h2">
+          <Typography className={classes.cardHeader} color="primary" variant="h6" component="h3">
             {missionName}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-           Mission Ids: {JSON.stringify(missionIds)}
+          <Typography variant="body2"  component="p">
+           <strong>Mission Ids:</strong> {JSON.stringify(missionIds)}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Launch Year: {launchYear}
+          <Typography variant="body2" component="p">
+            <strong>Launch Year:</strong> {launchYear}
          </Typography>
-         <Typography variant="body2" color="textSecondary" component="p">
-            Launch Success: {successLaunch}
+         <Typography variant="body2" component="p">
+            <strong>Launch Success:</strong> {successLaunch}
          </Typography>
+         <Typography variant="body2" component="p">
+         <strong>Land Success:</strong> {successLand}
+      </Typography>
         </CardContent>
     </Card>
   );

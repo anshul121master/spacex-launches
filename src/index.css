@@ -19,7 +19,7 @@ code {
 #root {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 30% 65%;
+  grid-template-columns: 30% 70%;
   grid-template-areas: 
   "hd hd"
   "filter-panel-grid mission-details-panel-grid";
@@ -37,10 +37,12 @@ code {
   }
 }
 /* Setting up mission cards grid */
+
+/* Grid for desktop view */
 @media (min-width: 1024px) and (max-width: 1440px) {
   .mission_cards_container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(25%, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     row-gap: 15px;
     column-gap: 15px;
@@ -48,10 +50,11 @@ code {
   }
 }
 
+/* Grid for tablet view */
 @media (min-width: 700px) and (max-width: 1023px) {
   .mission_cards_container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(25%, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     row-gap: 15px;
     column-gap: 15px;
@@ -59,10 +62,11 @@ code {
   }
 }
 
+/* Grid for mobile view */
 @media (max-width: 700px) {
   .mission_cards_container {
     display: grid;
-    grid-template-columns: minmax(25%, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     row-gap: 15px;
     column-gap: 15px;

@@ -5,8 +5,9 @@ export default () => {
     textAlign: "center",
     backgroundColor: "black",
     color: "white",
-    width: "100vw",
-    padding: 15,
+    width: "100%",
+    paddingTop: 15,
+    paddingBottom: 15
   };
   return (
     <h2 className="header" style={style}>
